@@ -1,5 +1,8 @@
+//Sadi Mohammad Mustafa
+//sam774
+//11257334
+
 import java.util.LinkedList;
-import java.util.Iterator;
 
 /**
  * This class is to model a patient in a hospital.  The class extends class Person

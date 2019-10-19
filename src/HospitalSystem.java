@@ -1,3 +1,7 @@
+ //Sadi Mohammad Mustafa
+ //sam774
+ //11257334
+
 import java.util.TreeMap;
 import java.util.Scanner;
 import java.util.Collection;
@@ -80,29 +84,28 @@ public class HospitalSystem
     }
 
     /**
-     * Read the information for a new doctor and then add the doctor
+     * Reading the information for a new doctor and then adds the doctor
      * to the dictionary of all doctors.
      */
     private void addDoctor()
     {
-        Scanner consoleIn = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
-        System.out.println("Getting Patient information...");
         System.out.print("Enter the name of the doctor: ");
-        String name = consoleIn.nextLine();
+        String name = in.nextLine();
         if (doctors.containsKey(name))
             throw new RuntimeException("Doctor not added as there already "
                     + "is a doctor with the name " + name);
 
         System.out.print("Is the doctor a surgeon? (yes or no)");
-        String response = consoleIn.nextLine();
+        String response = in.nextLine();
         Doctor d;
         if (response.charAt(0) == 'y' || response.charAt(0) == 'Y')
             d = new Surgeon(name);
         else
             d = new Doctor(name);
 
-        // check to make sure the doctor name doesn't already exsist
+        // checking to make sure the doctor name doesn't already exists
         Doctor sameNumberDoctor = doctors.put(name, d);
         if (sameNumberDoctor != null)
         {
@@ -117,13 +120,11 @@ public class HospitalSystem
      */
     private void assignDoctorToPatient()
     {
-        Scanner consoleIn = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
-        System.out.println("Assigning a new Doctor-Patient Association...");
-        System.out.println("Getting Patient information...");
         System.out.print("Enter the health number of the patient: ");
-        int healthNumber = consoleIn.nextInt();
-        consoleIn.nextLine();  // discard the remainder of the line
+        int healthNumber = in.nextInt();
+        in.nextLine();  // discard the remainder of the line
 
         Patient p = patients.get(healthNumber);
         if (p == null)
@@ -132,7 +133,7 @@ public class HospitalSystem
 
         System.out.println("Getting Doctor information...");
         System.out.print("Enter the name of the doctor: ");
-        String name = consoleIn.nextLine();
+        String name = in.nextLine();
         Doctor d = doctors.get(name);
         if (d == null)
             throw new RuntimeException("There is no doctor with name " + name);
@@ -148,13 +149,11 @@ public class HospitalSystem
      */
     private void assignBed()
     {
-        Scanner consoleIn = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
-        System.out.println("Assigning a Patient to a Bed...");
-        System.out.println("Getting Patient information...");
         System.out.print("Enter the health number of the patient: ");
-        int healthNumber = consoleIn.nextInt();
-        consoleIn.nextLine();  // discard the remainder of the line
+        int healthNumber = in.nextInt();
+        in.nextLine();  // discard the remainder of the line
 
         Patient p = patients.get(healthNumber);
         if (p == null)
@@ -166,8 +165,7 @@ public class HospitalSystem
                     + " is already in a bed so cannot be assigned a new bed");
 
         System.out.print("Enter the bed number for the patient: ");
-        int bedNum = consoleIn.nextInt();
-        consoleIn.nextLine();  // discard the remainder of the line
+        int bedNum = in.nextInt();
         if (bedNum < ward.getMinBedLabel() || bedNum > ward.getMaxBedLabel())
             throw new RuntimeException("Bed label " + bedNum + " is not valid, as "
                     + "the value must be between " + ward.getMinBedLabel()
@@ -182,22 +180,18 @@ public class HospitalSystem
      */
     private void dropAssociation()
     {
-        Scanner consoleIn = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
-        System.out.println("Dropping a new Doctor-Patient Association...");
-        System.out.println("Getting Patient information...");
         System.out.print("Enter the health number of the patient: ");
-        int healthNumber = consoleIn.nextInt();
-        consoleIn.nextLine();  // discard the remainder of the line
+        int healthNumber = in.nextInt();
 
         Patient p = patients.get(healthNumber);
         if (p == null)
             throw new RuntimeException("There is no patient with health number "
                     + healthNumber);
 
-        System.out.println("Getting Doctor information...");
         System.out.print("Enter the name of the doctor: ");
-        String name = consoleIn.nextLine();
+        String name = in.nextLine();
 
         Doctor d = doctors.get(name);
         if (d == null)
@@ -269,11 +263,11 @@ public class HospitalSystem
     public static void main(String[] args)
     {
 
-        try (Scanner consoleIn = new Scanner(System.in)) {
+        try (Scanner in = new Scanner(System.in)) {
             int task = -1;
             HospitalSystem sys = new HospitalSystem();
             while (task != 1) {
-                System.out.print("Please select an operation to do"
+                System.out.print("Please select an Function to do"
                         + "\n1: quit"
                         + "\n2: add a new patient"
                         + "\n3: add a new doctor"
@@ -285,8 +279,8 @@ public class HospitalSystem
                         + "\n9: display current system state"
                         + "\nEnter the number of your selection: ");
 
-                task = consoleIn.nextInt();
-                consoleIn.nextLine();
+                task = in.nextInt();
+                in.nextLine();
 
                 if (task == 1)
                     sys.systemState();
