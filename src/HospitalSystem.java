@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.TreeMap;
 import java.util.Scanner;
 import java.util.Collection;
@@ -250,8 +251,8 @@ public class HospitalSystem
      */
     public void displayEmptyBeds()
     {
-        // TODO: implement stub
-        System.out.println("TODO: method not complete");
+        LinkedList<Integer> emptyBedList = ward.availableBeds();
+        System.out.println("The empty beds are" + emptyBedList);
     }
 
 
