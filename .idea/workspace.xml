@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="235a6e9b-1869-4931-abf1-6248ebba3acd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/HospitalSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HospitalSytemA4Q1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HospitalSytemA4Q1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HospitalSystemA4Q1.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +45,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.HospitalSytemA4Q1">
+  <component name="RunManager" selected="Application.HospitalSystemA4Q1">
     <configuration name="Doctor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Doctor" />
       <module name="Assignment 3 &amp; 4" />
@@ -52,8 +53,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HospitalSytemA4Q1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HospitalSytemA4Q1" />
+    <configuration name="HospitalSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="HospitalSystem" />
       <module name="Assignment 3 &amp; 4" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,7 +130,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HospitalSytemA4Q1" />
+        <item itemvalue="Application.HospitalSystemA4Q1" />
         <item itemvalue="Application.Doctor" />
         <item itemvalue="Application.Surgeon" />
         <item itemvalue="Application.Patient" />
@@ -169,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572512338569</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changed the name of the hospital system for submission purpose&#10;will change it back after that">
+      <created>1572512456088</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1572512456088</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +197,7 @@
     <MESSAGE value="created 2 packages for commands and user interfaces" />
     <MESSAGE value="creating linked list for the list of empty beds in the hospital system&#10;class" />
     <MESSAGE value="implemented releasePatient in hospital system" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented releasePatient in hospital system" />
+    <MESSAGE value="changed the name of the hospital system for submission purpose&#10;will change it back after that" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed the name of the hospital system for submission purpose&#10;will change it back after that" />
   </component>
 </project>

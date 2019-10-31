@@ -1,3 +1,10 @@
+//Sadi Mohammad Mustafa
+//sam774
+//11257334
+//CMPT270
+
+
+
 import java.util.LinkedList;
 import java.util.TreeMap;
 import java.util.Scanner;
@@ -7,7 +14,7 @@ import java.util.Collection;
  * A simple hospital system with only one ward.  Patients and doctors can be created,
  * and patients assigned to a doctor and/or placed in a bed of the ward.
  */
-public class HospitalSytemA4Q1
+public class HospitalSystem
 {
     /**
      * The keyed dictionary of all patients.
@@ -28,7 +35,7 @@ public class HospitalSytemA4Q1
      * Initialize an instance of the hospital ward
      * relies on user-input to get the relavent information
      */
-    public HospitalSytemA4Q1() {
+    public HospitalSystem() {
 
         patients = new TreeMap<Integer, Patient>();
         doctors = new TreeMap<String, Doctor>();
@@ -294,7 +301,7 @@ public class HospitalSytemA4Q1
         Scanner consoleIn = new Scanner(System.in);
         int task = -1;
 
-        HospitalSytemA4Q1 sys = new HospitalSytemA4Q1();
+        HospitalSystem sys = new HospitalSystem();
 
         try{
             while(task != 1) {
