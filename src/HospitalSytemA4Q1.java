@@ -7,7 +7,7 @@ import java.util.Collection;
  * A simple hospital system with only one ward.  Patients and doctors can be created,
  * and patients assigned to a doctor and/or placed in a bed of the ward.
  */
-public class HospitalSystem
+public class HospitalSytemA4Q1
 {
     /**
      * The keyed dictionary of all patients.
@@ -28,7 +28,7 @@ public class HospitalSystem
      * Initialize an instance of the hospital ward
      * relies on user-input to get the relavent information
      */
-    public HospitalSystem() {
+    public HospitalSytemA4Q1() {
 
         patients = new TreeMap<Integer, Patient>();
         doctors = new TreeMap<String, Doctor>();
@@ -294,7 +294,7 @@ public class HospitalSystem
         Scanner consoleIn = new Scanner(System.in);
         int task = -1;
 
-        HospitalSystem sys = new HospitalSystem();
+        HospitalSytemA4Q1 sys = new HospitalSytemA4Q1();
 
         try{
             while(task != 1) {
