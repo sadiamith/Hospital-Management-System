@@ -262,9 +262,27 @@ public class HospitalSystem
      */
     public void releasePatient()
     {
-        // TODO: implement stub
-        System.out.println("TODO: method not complete");
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the health number of the patient: ");
 
+        int patientHealthNum = in.nextInt();
+        in.nextLine();
+
+        if(!patients.containsKey(patientHealthNum)){
+            throw new RuntimeException("There is no patient with the health number" + patientHealthNum);
+        }
+
+        Patient p = patients.get(patientHealthNum);
+        if(p.getBedLabel() == -1){
+            throw new RuntimeException("The patient is not assigned to any bed");
+        }
+        int bedLabel = p.getBedLabel();
+        if(ward.getPatient(bedLabel) != p){
+            throw new RuntimeException("The bed" + bedLabel + "does not contain the patient it was supposed to"
+            + "Instead it contains" + ward.getPatient(bedLabel) + "Patient");
+        }
+        ward.freeBed(bedLabel);
+        p.setBedLabel(-1);
     }
 
     /**

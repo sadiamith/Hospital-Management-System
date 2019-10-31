@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="235a6e9b-1869-4931-abf1-6248ebba3acd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HospitalSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HospitalSystem.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -156,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572511014925</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="creating linked list for the list of empty beds in the hospital system&#10;class">
+      <created>1572511578549</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1572511578549</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,6 +180,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created 2 packages for commands and user interfaces" />
-    <option name="LAST_COMMIT_MESSAGE" value="created 2 packages for commands and user interfaces" />
+    <MESSAGE value="creating linked list for the list of empty beds in the hospital system&#10;class" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating linked list for the list of empty beds in the hospital system&#10;class" />
   </component>
 </project>
