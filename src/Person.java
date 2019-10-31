@@ -72,43 +72,54 @@ public class Person
     public static void main(String[] args)
     {
         int numErrors = 0;
+
+        // testing all the methods with one instance of the class
         Person p = new Person("Pete", 123456);
-        System.out.println("The person called Pete with number 123456 is " + p + "\n");
-        if (! p.getName().equals("Pete"))
-        {
+
+        if(! p.getName().equals("Pete")) {
             System.out.println("The constructor or getName failed");
             numErrors++;
         }
-        if (p.getHealthNumber() != 123456)
-        {
+        if(p.getHealthNumber() != 123456) {
             System.out.println("The constructor or getHealthNumber failed");
             numErrors++;
         }
         p.setName("Jim");
-        if (! p.getName().equals("Jim"))
-        {
-            System.out.println("setName failed");
+        if(! p.getName().equals("Jim")) {
+            System.out.println("SetName failed");
+            numErrors++;
+        }
+        String expected = "\nName: Jim\nHealth number: 123456\n";
+        if(!p.toString().equals(expected)) {
+            System.out.println("toString failed: " + p.toString());
             numErrors++;
         }
 
+        // testing all the methods with a second instance of the class
         p = new Person("Mary", 987654);
-        System.out.println("The person called Mary with number 987654 is " + p + "\n");
-        if (! p.getName().equals("Mary"))
+
+        if(! p.getName().equals("Mary"))
         {
             System.out.println("The constructor or getName failed");
             numErrors++;
         }
-        if (p.getHealthNumber() != 987654)
+        if(p.getHealthNumber() != 987654)
         {
             System.out.println("The constructor or getHealthNumber failed");
             numErrors++;
         }
         p.setName("Sue");
-        if (! p.getName().equals("Sue"))
+        if(! p.getName().equals("Sue"))
         {
             System.out.println("setName failed");
             numErrors++;
         }
+        expected = "\nName: Sue\nHealth number: 987654\n";
+        if (!p.toString().equals(expected)) {
+            System.out.println("toString failed: " + p.toString());
+            numErrors++;
+        }
+
         System.out.println("The number of errors found is " + numErrors);
     }
 }

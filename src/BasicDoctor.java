@@ -29,6 +29,15 @@ public class BasicDoctor
     }
 
     /**
+     * Change the name of the doctor.
+     *
+     * @param newName the name of the doctor
+     */
+    public void setName(String newName) {
+        name = newName;
+    }
+
+    /**
      * Return a string representation of the doctor
      *
      * @return a string representation of the doctor
@@ -44,19 +53,38 @@ public class BasicDoctor
     public static void main(String[] args)
     {
         int numErrors = 0;
+
+        // testing all the methods with one instance of the class
         BasicDoctor d = new BasicDoctor("Joe");
-        System.out.println("BasicDoctor Joe is " + d + "\n");
-        if (! d.getName().equals("Joe"))
-        {
+        if(! d.getName().equals("Joe")) {
             System.out.println("The constructor or getName failed");
             numErrors++;
         }
+        d.setName("Dr. Joe");
+        if(! d.getName().equals("Dr. Joe")) {
+            System.out.println("The constructor or setName failed");
+            numErrors++;
+        }
+        String expected = "\nName: Dr. Joe\n";
+        if(!d.toString().equals(expected)) {
+            System.out.println("The constructor or toString failed");
+            numErrors++;
+        }
 
+        // testing all the methods with a second instance of the class
         d = new BasicDoctor("Mary");
-        System.out.println("BasicDoctor Mary is " + d + "\n");
-        if (! d.getName().equals("Mary"))
-        {
+        if(! d.getName().equals("Mary")) {
             System.out.println("The constructor or getName failed");
+            numErrors++;
+        }
+        d.setName("Dr. Mary");
+        if(! d.getName().equals("Dr. Mary")) {
+            System.out.println("The constructor or setName failed");
+            numErrors++;
+        }
+        expected = "\nName: Dr. Mary\n";
+        if(!d.toString().equals(expected)) {
+            System.out.println("The constructor or toString failed");
             numErrors++;
         }
 

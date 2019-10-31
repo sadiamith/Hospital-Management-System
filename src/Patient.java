@@ -1,18 +1,15 @@
-//Sadi Mohammad Mustafa
-//sam774
-//11257334
-
 import java.util.LinkedList;
+import java.util.Iterator;
 
 /**
  * This class is to model a patient in a hospital.  The class extends class Person
- * and has a bed in the ward with -1 value for no bed, and a list of doctors.
+ * and has a bed in the ward (with -1 value for no bed), and a list of doctors.
  */
 public class Patient extends Person
 {
     /**
      * The integer label of the bed occupied by the patient.
-     * A value of -1 indicates no bed has been occupied.
+     * A value of -1 indicates no bed at this time.
      */
     private int bedLabel;
 
@@ -25,6 +22,7 @@ public class Patient extends Person
      * Initialize an instance with the given name and health number.
      * @param name		the name for the person
      * @param number	the health number for the person
+     * @precond name != null && !name.equals("") && number > 0
      */
     public Patient(String name, int number)
     {
@@ -58,6 +56,7 @@ public class Patient extends Person
     /**
      * Add another doctor to the list of doctors of this patient.
      * @param d	the new doctor to be added for this patient
+     * @precond !hasDoctor(d.getName())
      */
     public void addDoctor(Doctor d)
     {
@@ -70,6 +69,7 @@ public class Patient extends Person
     /** Remove the doctor specified by the name parameter
      * from the doctors for this patient.
      * @param name	the name of the doctor to be removed from the doctors list
+     * @precond hasDoctor(name)
      */
     public void removeDoctor(String name)
     {
@@ -77,7 +77,13 @@ public class Patient extends Person
             throw new RuntimeException(name
                     + " is not a doctor for this patient");
 
-        doctors.removeIf(d -> d.getName().equals(name));
+        Iterator<Doctor> iter = doctors.iterator();
+        while (iter.hasNext()) {
+            Doctor d = iter.next();
+            if (d.getName().equals(name)) {
+                iter.remove();
+            }
+        }
     }
 
     /**
@@ -87,7 +93,10 @@ public class Patient extends Person
      */
     public boolean hasDoctor(String name)
     {
-        for (Doctor d : doctors) {
+        Iterator<Doctor> iter = doctors.iterator();
+        while (iter.hasNext())
+        {
+            Doctor d = iter.next();
             if (d.getName().equals(name))
                 return true;
         }
@@ -110,12 +119,15 @@ public class Patient extends Person
         return result + "\n";
     }
 
+    /**
+     * Carry out basic tests of this class.
+     */
     public static void main(String[ ] args)
     {
         int numErrors = 0;
 
-        // testing all the methods on the instance of the class
-        Patient p = new Patient("Bahar", 123456);
+        // testing all the methods on one instance of the class
+        Patient p = new Patient("Pete", 123456);
         if (p.getBedLabel() != -1)
         {
             System.out.println("constructor or getBedLabel failed: The bed label is " + p.getBedLabel()
@@ -124,8 +136,8 @@ public class Patient extends Person
         }
         if (p.doctors.size() != 0)
         {
-            System.out.println("constructor failed: The patient should have no doctors, "
-                    + "but already has " + p.doctors);
+            System.out.println("constructor failed: The patient should have no docotrs, "
+                    + "but already has the patients " + p.doctors);
             numErrors++;
         }
 
@@ -150,7 +162,7 @@ public class Patient extends Person
         if (!p.hasDoctor("Mary"))
         {
             System.out.println("Either addDoctor or hasDoctor failed, "
-                    + "as Bahar does not have doctor Mary.");
+                    + "as Pete does not have doctor Mary.");
             numErrors++;
         }
         if (p.doctors.size() != 2)
@@ -164,11 +176,11 @@ public class Patient extends Person
         if (p.hasDoctor("Mary"))
         {
             System.out.println("Either removeDoctor or hasDoctor failed, "
-                    + "as Bahar still has doctor Mary.");
+                    + "as Pete still has doctor Mary.");
             numErrors++;
         }
 
-        String expected = "\nName: Bahar\n" +
+        String expected = "\nName: Pete\n" +
                 "Health number: 123456\n" +
                 "Bed: 205\n" +
                 "Doctors:  Joe,\n";
@@ -176,6 +188,71 @@ public class Patient extends Person
             System.out.println("toString failed: " + p.toString());
             numErrors++;
         }
+
+
+        // testing all the methods on a second instance of the class
+        p = new Patient("Kim", 78899);
+        if (p.getBedLabel() != -1)
+        {
+            System.out.println("constructor or getBedLabel failed: The bed label is " + p.getBedLabel()
+                    + " when it should be -1");
+            numErrors++;
+        }
+        if (p.doctors.size() != 0)
+        {
+            System.out.println("constructor failed: The patient should have no docotrs, "
+                    + "but already has the patients " + p.doctors);
+            numErrors++;
+        }
+
+        p.setBedLabel(15);
+        if (p.getBedLabel() != 15)
+        {
+            System.out.println("getBedlabel or setBedLabel failed: The bed label is " + p.getBedLabel()
+                    + " when it should be 15");
+            numErrors++;
+        }
+
+        d = new Doctor("Conrad");
+        p.addDoctor(d);
+        if (!p.hasDoctor("Conrad"))
+        {
+            System.out.println("Either addDoctor or hasDoctor failed, "
+                    + "as Kim does not have doctor Conrad.");
+            numErrors++;
+        }
+        d = new Doctor("Michele");
+        p.addDoctor(d);
+        if (!p.hasDoctor("Michele"))
+        {
+            System.out.println("Either addDoctor or hasDoctor failed, "
+                    + "as Kim does not have doctor Michele.");
+            numErrors++;
+        }
+        if (p.doctors.size() != 2)
+        {
+            System.out.println("The patient should have two docotrs, "
+                    + "but he has the patients " + p.doctors);
+            numErrors++;
+        }
+
+        p.removeDoctor("Conrad");
+        if (p.hasDoctor("Conrad"))
+        {
+            System.out.println("Either removeDoctor or hasDoctor failed, "
+                    + "as Kim still has doctor Conrad.");
+            numErrors++;
+        }
+
+        expected = "\nName: Kim\n" +
+                "Health number: 78899\n" +
+                "Bed: 15\n" +
+                "Doctors:  Michele,\n";
+        if(!p.toString().equals(expected)) {
+            System.out.println("toString failed: " + p.toString());
+            numErrors++;
+        }
+
         System.out.println("The number of errors found is " + numErrors);
     }
 }

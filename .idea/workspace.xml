@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="235a6e9b-1869-4931-abf1-6248ebba3acd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 3/Doctor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/HospitalSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 3/HospitalSystem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 3/Patient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Surgeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 3/Surgeon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Ward.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment 3/Ward.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BasicDoctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BasicDoctor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HospitalSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HospitalSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Surgeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Surgeon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ward.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ward.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,47 +48,94 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Doctor">
+  <component name="RunManager" selected="Application.HospitalSystem">
     <configuration name="Doctor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Doctor" />
-      <module name="Assignment 3" />
+      <module name="Assignment 3 &amp; 4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="HospitalSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HospitalSystem" />
-      <module name="Assignment 3" />
+      <module name="Assignment 3 &amp; 4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Patient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Patient" />
-      <module name="Assignment 3" />
+      <module name="Assignment 3 &amp; 4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Surgeon" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Surgeon" />
-      <module name="Assignment 3" />
+      <module name="Assignment 3 &amp; 4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Ward" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Ward" />
-      <module name="Assignment 3" />
+      <module name="Assignment 3 &amp; 4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="Assignment 3 &amp; 4" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="Assignment 3 &amp; 4" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HospitalSystem" />
         <item itemvalue="Application.Doctor" />
         <item itemvalue="Application.Surgeon" />
-        <item itemvalue="Application.HospitalSystem" />
         <item itemvalue="Application.Patient" />
         <item itemvalue="Application.Ward" />
       </list>
@@ -119,7 +159,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
