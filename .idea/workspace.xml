@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="235a6e9b-1869-4931-abf1-6248ebba3acd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/commands/AssignDoctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commands/EmptyBeds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/PatientMapAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/containers/WardAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HospitalSytemA4Q1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HospitalSystemA4Q1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/BasicDoctor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Doctor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/HospitalSystem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Patient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Surgeon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Ward.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/NewDoctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/NewDoctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/DoctorMapAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DoctorMapAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/startup/HospitalSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/startup/HospitalSystem.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +46,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="startup" />
+      <recent name="entities" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -45,92 +64,45 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.HospitalSystemA4Q1">
+  <component name="RunManager" selected="Application.HospitalSystem">
     <configuration name="Doctor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Doctor" />
+      <option name="MAIN_CLASS_NAME" value="entities.Doctor" />
       <module name="Assignment 3 &amp; 4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="HospitalSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HospitalSystem" />
+      <option name="MAIN_CLASS_NAME" value="startup.HospitalSystem" />
       <module name="Assignment 3 &amp; 4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Patient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Patient" />
+      <option name="MAIN_CLASS_NAME" value="entities.Patient" />
       <module name="Assignment 3 &amp; 4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Surgeon" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Surgeon" />
+      <option name="MAIN_CLASS_NAME" value="entities.Surgeon" />
       <module name="Assignment 3 &amp; 4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Ward" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Ward" />
+      <option name="MAIN_CLASS_NAME" value="entities.Ward" />
       <module name="Assignment 3 &amp; 4" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <module name="Assignment 3 &amp; 4" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
-      <module name="Assignment 3 &amp; 4" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HospitalSystemA4Q1" />
+        <item itemvalue="Application.HospitalSystem" />
         <item itemvalue="Application.Doctor" />
         <item itemvalue="Application.Surgeon" />
         <item itemvalue="Application.Patient" />
