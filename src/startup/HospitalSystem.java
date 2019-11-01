@@ -1,9 +1,14 @@
-//Sadi Mohammad Mustafa
+package startup;//Sadi Mohammad Mustafa
 //sam774
 //11257334
 //CMPT270
 
 
+
+import entities.Doctor;
+import entities.Patient;
+import entities.Surgeon;
+import entities.Ward;
 
 import java.util.LinkedList;
 import java.util.TreeMap;
@@ -44,8 +49,8 @@ public class HospitalSystem
         Scanner consoleIn = new Scanner(System.in);
 
         System.out.println("Initializing the system...");
-        System.out.println("Getting Ward information...");
-        System.out.print("Enter the name of the Ward: ");
+        System.out.println("Getting entities.Ward information...");
+        System.out.print("Enter the name of the entities.Ward: ");
         String name = consoleIn.nextLine();
         System.out.print("Enter the integer label of the first bed: ");
         int firstBedNum = consoleIn.nextInt();
@@ -65,7 +70,7 @@ public class HospitalSystem
     {
         Scanner consoleIn = new Scanner(System.in);
 
-        System.out.println("Getting Patient information...");
+        System.out.println("Getting entities.Patient information...");
         System.out.print("Enter the name of the patient: ");
         String name = consoleIn.nextLine();
 
@@ -74,7 +79,7 @@ public class HospitalSystem
         consoleIn.nextLine();  // discard the remainder of the line
         if (patients.containsKey(healthNum))
         {
-            throw new RuntimeException("Patient with the health number " + healthNum + " already exsists");
+            throw new RuntimeException("entities.Patient with the health number " + healthNum + " already exsists");
         }
         else
         {
@@ -99,11 +104,11 @@ public class HospitalSystem
     {
         Scanner consoleIn = new Scanner(System.in);
 
-        System.out.println("Getting Patient information...");
+        System.out.println("Getting entities.Patient information...");
         System.out.print("Enter the name of the doctor: ");
         String name = consoleIn.nextLine();
         if (doctors.containsKey(name))
-            throw new RuntimeException("Doctor not added as there already "
+            throw new RuntimeException("entities.Doctor not added as there already "
                     + "is a doctor with the name " + name);
 
         System.out.print("Is the doctor a surgeon? (yes or no)");
@@ -131,8 +136,8 @@ public class HospitalSystem
     {
         Scanner consoleIn = new Scanner(System.in);
 
-        System.out.println("Assigning a new Doctor-Patient Association...");
-        System.out.println("Getting Patient information...");
+        System.out.println("Assigning a new entities.Doctor-entities.Patient Association...");
+        System.out.println("Getting entities.Patient information...");
         System.out.print("Enter the health number of the patient: ");
         int healthNumber = consoleIn.nextInt();
         consoleIn.nextLine();  // discard the remainder of the line
@@ -142,7 +147,7 @@ public class HospitalSystem
             throw new RuntimeException("There is no patient with health number "
                     + healthNumber);
 
-        System.out.println("Getting Doctor information...");
+        System.out.println("Getting entities.Doctor information...");
         System.out.print("Enter the name of the doctor: ");
         String name = consoleIn.nextLine();
         Doctor d = doctors.get(name);
@@ -162,8 +167,8 @@ public class HospitalSystem
     {
         Scanner consoleIn = new Scanner(System.in);
 
-        System.out.println("Assigning a Patient to a Bed...");
-        System.out.println("Getting Patient information...");
+        System.out.println("Assigning a entities.Patient to a Bed...");
+        System.out.println("Getting entities.Patient information...");
         System.out.print("Enter the health number of the patient: ");
         int healthNumber = consoleIn.nextInt();
         consoleIn.nextLine();  // discard the remainder of the line
@@ -174,7 +179,7 @@ public class HospitalSystem
                     + healthNumber);
 
         if (p.getBedLabel() != -1)
-            throw new RuntimeException(" Patient " + p
+            throw new RuntimeException(" entities.Patient " + p
                     + " is already in a bed so cannot be assigned a new bed");
 
         System.out.print("Enter the bed number for the patient: ");
@@ -196,8 +201,8 @@ public class HospitalSystem
     {
         Scanner consoleIn = new Scanner(System.in);
 
-        System.out.println("Dropping a new Doctor-Patient Association...");
-        System.out.println("Getting Patient information...");
+        System.out.println("Dropping a new entities.Doctor-entities.Patient Association...");
+        System.out.println("Getting entities.Patient information...");
         System.out.print("Enter the health number of the patient: ");
         int healthNumber = consoleIn.nextInt();
         consoleIn.nextLine();  // discard the remainder of the line
@@ -207,7 +212,7 @@ public class HospitalSystem
             throw new RuntimeException("There is no patient with health number "
                     + healthNumber);
 
-        System.out.println("Getting Doctor information...");
+        System.out.println("Getting entities.Doctor information...");
         System.out.print("Enter the name of the doctor: ");
         String name = consoleIn.nextLine();
 
@@ -236,8 +241,8 @@ public class HospitalSystem
     }
 
     /**
-     * Return a string representation of the HospitalSystem
-     * @return a string representation of the HospitalSystem
+     * Return a string representation of the startup.HospitalSystem
+     * @return a string representation of the startup.HospitalSystem
      */
     public String toString() {
         String result = "\nThe patients in the system are \n";
@@ -286,7 +291,7 @@ public class HospitalSystem
         int bedLabel = p.getBedLabel();
         if(ward.getPatient(bedLabel) != p){
             throw new RuntimeException("The bed" + bedLabel + "does not contain the patient it was supposed to"
-            + "Instead it contains" + ward.getPatient(bedLabel) + "Patient");
+            + "Instead it contains" + ward.getPatient(bedLabel) + "entities.Patient");
         }
         ward.freeBed(bedLabel);
         p.setBedLabel(-1);

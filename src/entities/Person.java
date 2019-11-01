@@ -1,3 +1,5 @@
+package entities;
+
 /**
  * The model of a person who has a name and a health number
  * that cannot be changed.
@@ -67,7 +69,7 @@ public class Person
     }
 
     /**
-     * A method to test the Person class.
+     * A method to test the entities.Person class.
      */
     public static void main(String[] args)
     {

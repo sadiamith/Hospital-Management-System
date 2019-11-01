@@ -1,11 +1,13 @@
+package entities;
+
 /**
- * A doctor with the Surgeon specialty.
+ * A doctor with the entities.Surgeon specialty.
  */
 public class Surgeon extends Doctor
 {
     /**
      * Initialize the surgeon with the specified name
-     * @param name  the name for the new Surgeon object
+     * @param name  the name for the new entities.Surgeon object
      * @precond name != null && !name.equals("")
      */
     public Surgeon(String name)
@@ -17,12 +19,12 @@ public class Surgeon extends Doctor
     }
 
     /**
-     * Return a string representation of the Surgeon.
-     * @return a string representation of the Surgeon
+     * Return a string representation of the entities.Surgeon.
+     * @return a string representation of the entities.Surgeon
      */
     public String toString()
     {
-        return "\nSurgeon" + super.toString();
+        return "\nentities.Surgeon" + super.toString();
     }
 
     /**
@@ -34,7 +36,7 @@ public class Surgeon extends Doctor
 
         // testing all the methods on one instance of the class
         Surgeon s = new Surgeon("Peter");
-        String expected = "\nSurgeon\nName: Peter\nPatients: \n";
+        String expected = "\nentities.Surgeon\nName: Peter\nPatients: \n";
         if(!s.toString().equals(expected)) {
             System.out.println("toString failed: " + s.toString());
             numErrors++;
@@ -43,7 +45,7 @@ public class Surgeon extends Doctor
 
         // testing all the methods on a second instance of the class
         s = new Surgeon("Billie Jean");
-        expected = "\nSurgeon\nName: Billie Jean\nPatients: \n";
+        expected = "\nentities.Surgeon\nName: Billie Jean\nPatients: \n";
         if(!s.toString().equals(expected)) {
             System.out.println("toString failed: " + s.toString());
             numErrors++;

@@ -1,3 +1,5 @@
+package entities;
+
 /**
  * A very simple model of a doctor who has a name.
  */
@@ -9,7 +11,7 @@ public class BasicDoctor
     private String name;
 
     /**
-     * Initialize an instance of BasicDoctor with the given name.
+     * Initialize an instance of entities.BasicDoctor with the given name.
      *
      * @param name the name of the doctor
      */
@@ -48,7 +50,7 @@ public class BasicDoctor
     }
 
     /**
-     * A method to test the BasicDoctor class.
+     * A method to test the entities.BasicDoctor class.
      */
     public static void main(String[] args)
     {

@@ -1,8 +1,10 @@
+package entities;
+
 import java.util.LinkedList;
 import java.util.Iterator;
 
 /**
- * This class is to model a patient in a hospital.  The class extends class Person
+ * This class is to model a patient in a hospital.  The class extends class entities.Person
  * and has a bed in the ward (with -1 value for no bed), and a list of doctors.
  */
 public class Patient extends Person

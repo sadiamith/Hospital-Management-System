@@ -1,3 +1,5 @@
+package entities;
+
 import java.util.LinkedList;
 
 /**
@@ -17,7 +19,7 @@ public class Ward
 
     /**
      * An array to represent the beds of the ward.  Each bed is empty (null)
-     * or else has a Patient in it.
+     * or else has a entities.Patient in it.
      */
     private Patient[] beds;
 
@@ -159,7 +161,7 @@ public class Ward
      */
     public String toString()
     {
-        String result = "\nWard " + name + " with capacity " + beds.length
+        String result = "\nentities.Ward " + name + " with capacity " + beds.length
                 + " has the following patients: ";
         for (int i = 0; i < beds.length; i++)
         {
@@ -222,7 +224,7 @@ public class Ward
     {
         int numErrors = 0;
 
-        // testing all the methods with one instance of a Ward
+        // testing all the methods with one instance of a entities.Ward
         Ward w = new Ward("surgery", 200, 210);
 
         if(!w.getName().equals("surgery")) {
@@ -294,7 +296,7 @@ public class Ward
             numErrors++;
         }
         if (w.getPatient(205) != p) {
-            System.out.println("getPatient() or isOccupied() failed: Person Pete should be in bed 205, but " + w.getPatient(205) + " is.");
+            System.out.println("getPatient() or isOccupied() failed: entities.Person Pete should be in bed 205, but " + w.getPatient(205) + " is.");
             numErrors++;
         }
         if (! w.getPatient(205).getName().equals("Pete")) {
@@ -318,7 +320,7 @@ public class Ward
             numErrors++;
         }
 
-        String expected = "\nWard surgery with capacity 11 has the following patients: \n" +
+        String expected = "\nentities.Ward surgery with capacity 11 has the following patients: \n" +
                 "bed 200: \n" +
                 "bed 201: \n" +
                 "bed 202: \n" +
@@ -413,7 +415,7 @@ public class Ward
             numErrors++;
         }
         if (w.getPatient(1) != p) {
-            System.out.println("getPatient() or isOccupied() failed: Person Dan should be in bed 1, but " + w.getPatient(1) + " is.");
+            System.out.println("getPatient() or isOccupied() failed: entities.Person Dan should be in bed 1, but " + w.getPatient(1) + " is.");
             numErrors++;
         }
 
@@ -425,7 +427,7 @@ public class Ward
             numErrors++;
         }
 
-        expected = "\nWard ER with capacity 3 has the following patients: \n" +
+        expected = "\nentities.Ward ER with capacity 3 has the following patients: \n" +
                 "bed 1: Dan\n" +
                 "bed 2: \n" +
                 "bed 3: \n";

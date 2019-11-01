@@ -1,3 +1,5 @@
+package entities;
+
 import java.util.LinkedList;
 import java.util.Iterator;
 
@@ -33,7 +35,7 @@ public class Doctor extends BasicDoctor
     public void addPatient(Patient p)
     {
         if (hasPatient(p.getHealthNumber()))
-            throw new RuntimeException("Patient " + p.getHealthNumber()
+            throw new RuntimeException("entities.Patient " + p.getHealthNumber()
                     + " is already a patient of " + getName());
         patients.add(p);
     }
@@ -41,14 +43,14 @@ public class Doctor extends BasicDoctor
     /**
      * Remove the patient with the specified health number
      * from the list of those being treated by this doctor
-     * @param healthNum  the health number of a Patient
+     * @param healthNum  the health number of a entities.Patient
      * @precond  hasPatient(healthNum)
 
      */
     public void removePatient(int healthNum)
     {
         if(!hasPatient(healthNum))
-            throw new RuntimeException("Doctor " + getName()
+            throw new RuntimeException("entities.Doctor " + getName()
                     + " does not have a patient with health number " + healthNum);
 
         Iterator<Patient> iter = patients.iterator();
@@ -64,10 +66,10 @@ public class Doctor extends BasicDoctor
     }
 
     /**
-     * Is the Patient with the specified health number a patient of this doctor?
-     * @param healthNum  the health number of the Patient to be tested
+     * Is the entities.Patient with the specified health number a patient of this doctor?
+     * @param healthNum  the health number of the entities.Patient to be tested
      *                   for being a patient of this doctor
-     * @return is the Patient with the specified health number a patient of this doctor?
+     * @return is the entities.Patient with the specified health number a patient of this doctor?
      */
     public boolean hasPatient(int healthNum)
     {
