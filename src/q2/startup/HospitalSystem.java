@@ -1,19 +1,16 @@
 package q2.startup;
-//Sadi Mohammad Mustafa
-//sam774
-//11257334
-//CMPT270
 
+import commands.*;
+import containers.*;
+import entities.Doctor;
+import entities.*;
+import q2.commands.AddPatient;
+import q2.commands.AssignBed;
+import q2.commands.CurrentState;
+import q2.commands.ReleasePatient;
+import q2.userInterfaces.*;
 
-import q2.entities.Doctor;
-import q2.entities.Patient;
-import q2.entities.Surgeon;
-import q2.entities.Ward;
-
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * A simple hospital system with only one ward.  Patients and doctors can be created,
@@ -22,44 +19,37 @@ import java.util.TreeMap;
 public class HospitalSystem
 {
     /**
-     * The keyed dictionary of all patients.
+     * The interface to be used to read input from the user and output results to the user.
      */
-    private TreeMap<Integer, Patient> patients;
+    private InputOutputInterface ioInterface;
 
     /**
-     * The keyed dictionary of all doctors.
+     * Initialize the system by creating the dictionaries, ward, and interface for I/O.
      */
-    private TreeMap<String, Doctor> doctors;
+    public void initialize() {
+        ioInterface = new DialogIO();
+        String option = ioInterface.readString("Should dialog boxes be used for I/O? (Y/N) ");
+        if (option != null)
+            if (option.charAt(0) == 'N' || option.charAt(0) == 'n')
+                ioInterface = new ConsoleIO();
+        createWard();
+    }
 
     /**
-     * The ward to be handled.
+     * Create the ward after reading the information to initialize it.
      */
-    private Ward ward;
+    public void createWard() {
+        String name = ioInterface.readString("Enter the name of the ward: ");
+        int firstBedLabel = ioInterface.readInt("Enter the integer label of the first bed: ");
+        int lastBedLabel = ioInterface.readInt("Enter the integer label of the last bed: ");
+    }
 
     /**
      * Initialize an instance of the hospital ward
      * relies on user-input to get the relavent information
      */
     public HospitalSystem() {
-
-        patients = new TreeMap<Integer, Patient>();
-        doctors = new TreeMap<String, Doctor>();
-
-        // get the ward information
-        Scanner consoleIn = new Scanner(System.in);
-
-        System.out.println("Initializing the system...");
-        System.out.println("Getting entities.Ward information...");
-        System.out.print("Enter the name of the entities.Ward: ");
-        String name = consoleIn.nextLine();
-        System.out.print("Enter the integer label of the first bed: ");
-        int firstBedNum = consoleIn.nextInt();
-        consoleIn.nextLine();
-
-        System.out.print("Enter the integer label of the last bed: ");
-        int lastBedNum = consoleIn.nextInt();
-        consoleIn.nextLine();
-        ward = new Ward(name, firstBedNum, lastBedNum);
+        initialize();
     }
 
     /**
@@ -68,32 +58,12 @@ public class HospitalSystem
      */
     public void addPatient()
     {
-        Scanner consoleIn = new Scanner(System.in);
-
-        System.out.println("Getting entities.Patient information...");
-        System.out.print("Enter the name of the patient: ");
-        String name = consoleIn.nextLine();
-
-        System.out.print("Enter the health number of the patient: ");
-        int healthNum = consoleIn.nextInt();
-        consoleIn.nextLine();  // discard the remainder of the line
-        if (patients.containsKey(healthNum))
-        {
-            throw new RuntimeException("entities.Patient with the health number " + healthNum + " already exsists");
-        }
-        else
-        {
-            Patient p = new Patient(name, healthNum);
-            Patient result = patients.put(healthNum, p);
-
-            // checking to make sure the the key was unique
-            if (result != null)
-            {
-                patients.put(healthNum, result);  // put the original patient back
-                throw new RuntimeException("Health number in the patient dictionary even "
-                        + "though containsKey failed.  Number " + healthNum + " not entered.");
-            }
-        }
+        String name = ioInterface.readString("Enter the name of the patient: ");
+        int healthNum = ioInterface.readInt("Enter the health number of the patient: ");
+        AddPatient cmd = new AddPatient();
+        cmd.addPatient(name, healthNum);
+        if (!cmd.wasSuccessful())
+            throw new RuntimeException(cmd.getErrorMessage() + "\n");
     }
 
     /**
@@ -102,31 +72,16 @@ public class HospitalSystem
      */
     public void addDoctor()
     {
-        Scanner consoleIn = new Scanner(System.in);
-
-        System.out.println("Getting entities.Patient information...");
-        System.out.print("Enter the name of the doctor: ");
-        String name = consoleIn.nextLine();
-        if (doctors.containsKey(name))
-            throw new RuntimeException("entities.Doctor not added as there already "
-                    + "is a doctor with the name " + name);
-
-        System.out.print("Is the doctor a surgeon? (yes or no)");
-        String response = consoleIn.nextLine();
-        Doctor d;
+        String name = ioInterface.readString("Enter the name of the doctor: ");
+        String response = ioInterface.readString("Is the doctor a surgeon? (yes or no)");
+        NewDoctor cmd = new NewDoctor();
         if (response.charAt(0) == 'y' || response.charAt(0) == 'Y')
-            d = new Surgeon(name);
+            cmd.addDoctor(name, true);
         else
-            d = new Doctor(name);
+            cmd.addDoctor(name, false);
+        if (!cmd.wasSuccessful())
+            throw new RuntimeException(cmd.getErrorMessage() + "\n");
 
-        // check to make sure the doctor name doesn't already exsist
-        Doctor sameNumberDoctor = doctors.put(name, d);
-        if (sameNumberDoctor != null)
-        {
-            doctors.put(name, sameNumberDoctor); // put the original doctor back
-            throw new RuntimeException("Name in the doctor dictionary even though "
-                    + "containsKey failed.  Name "  + name + " not entered.");
-        }
     }
 
     /**
@@ -134,30 +89,15 @@ public class HospitalSystem
      */
     public void assignDoctorToPatient()
     {
-        Scanner consoleIn = new Scanner(System.in);
+        int healthNumber = ioInterface.readInt("Enter the health number of the patient: ");
+        String name = ioInterface.readString("Enter the name of the doctor: ");
 
-        System.out.println("Assigning a new entities.Doctor-entities.Patient Association...");
-        System.out.println("Getting entities.Patient information...");
-        System.out.print("Enter the health number of the patient: ");
-        int healthNumber = consoleIn.nextInt();
-        consoleIn.nextLine();  // discard the remainder of the line
-
-        Patient p = patients.get(healthNumber);
-        if (p == null)
-            throw new RuntimeException("There is no patient with health number "
-                    + healthNumber);
-
-        System.out.println("Getting entities.Doctor information...");
-        System.out.print("Enter the name of the doctor: ");
-        String name = consoleIn.nextLine();
-        Doctor d = doctors.get(name);
-        if (d == null)
-            throw new RuntimeException("There is no doctor with name " + name);
-        else
-        {
-            p.addDoctor(d);
-            d.addPatient(p);
+        AssignDoctor cmd = new AssignDoctor();
+        cmd.assignDoctor(name, healthNumber);
+        if(!cmd.wasSuccessful()) {
+            throw new RuntimeException(cmd.getErrorMessage());
         }
+
     }
 
     /**
@@ -165,33 +105,13 @@ public class HospitalSystem
      */
     public void assignBed()
     {
-        Scanner consoleIn = new Scanner(System.in);
+        int healthNum = ioInterface.readInt("Enter the health number of the patient: ");
+        int bedNum = ioInterface.readInt("Enter the bed number for the patient: ");
 
-        System.out.println("Assigning a entities.Patient to a Bed...");
-        System.out.println("Getting entities.Patient information...");
-        System.out.print("Enter the health number of the patient: ");
-        int healthNumber = consoleIn.nextInt();
-        consoleIn.nextLine();  // discard the remainder of the line
-
-        Patient p = patients.get(healthNumber);
-        if (p == null)
-            throw new RuntimeException("There is no patient with health number "
-                    + healthNumber);
-
-        if (p.getBedLabel() != -1)
-            throw new RuntimeException(" entities.Patient " + p
-                    + " is already in a bed so cannot be assigned a new bed");
-
-        System.out.print("Enter the bed number for the patient: ");
-        int bedNum = consoleIn.nextInt();
-        consoleIn.nextLine();  // discard the remainder of the line
-        if (bedNum < ward.getMinBedLabel() || bedNum > ward.getMaxBedLabel())
-            throw new RuntimeException("Bed label " + bedNum + " is not valid, as "
-                    + "the value must be between " + ward.getMinBedLabel()
-                    + " and " + ward.getMaxBedLabel());
-
-        p.setBedLabel(bedNum);
-        ward.assignPatientToBed(p, bedNum);
+        AssignBed cmd = new AssignBed();
+        cmd.assignBed(healthNum, bedNum);
+        if (!cmd.wasSuccessful())
+            throw new RuntimeException(cmd.getErrorMessage() + "\n");
     }
 
     /**
@@ -199,42 +119,26 @@ public class HospitalSystem
      */
     public void dropAssociation()
     {
-        Scanner consoleIn = new Scanner(System.in);
+        int healthNumber = ioInterface.readInt("Enter the health number of the patient: ");
 
-        System.out.println("Dropping a new entities.Doctor-entities.Patient Association...");
-        System.out.println("Getting entities.Patient information...");
-        System.out.print("Enter the health number of the patient: ");
-        int healthNumber = consoleIn.nextInt();
-        consoleIn.nextLine();  // discard the remainder of the line
+        Patient p = PatientMapAccess.dictionary().get(healthNumber);
 
-        Patient p = patients.get(healthNumber);
-        if (p == null)
-            throw new RuntimeException("There is no patient with health number "
-                    + healthNumber);
+        String name = ioInterface.readString("Enter the name of the doctor: ");
 
-        System.out.println("Getting entities.Doctor information...");
-        System.out.print("Enter the name of the doctor: ");
-        String name = consoleIn.nextLine();
-
-        Doctor d = doctors.get(name);
-        if (d == null)
-            throw new RuntimeException("There is no doctor with name " + name);
-
+        Doctor d = DoctorMapAccess.dictionary().get(name);
         int pHealthNumber = p.getHealthNumber();
-        if (!d.hasPatient(pHealthNumber))
-            throw new RuntimeException("This doctor is not associated with this patient.");
-        if (!p.hasDoctor(name))
-            throw new RuntimeException("This doctor and this patient are incorrectly "
-                    + "associated.  The doctor has the patient, "
-                    + "but the patient does not have the doctor");
 
-        p.removeDoctor(name);
-        d.removePatient(healthNumber);
+        DropDoctor cmd = new DropDoctor();
+        cmd.dropAssociation(name, pHealthNumber);
+        if(!cmd.wasSuccessful()){
+            throw new RuntimeException(cmd.getErrorMessage());
+        }
     }
 
     /**
      * Displays the system state
      */
+    
     public void systemState()
     {
         System.out.println(this.toString());
@@ -246,55 +150,60 @@ public class HospitalSystem
      */
     public String toString() {
         String result = "\nThe patients in the system are \n";
-        Collection<Patient> patientsColl = patients.values();
+        Collection<Patient> patientsColl = PatientMapAccess.dictionary().values();
         for (Patient p: patientsColl)
             result = result + p;
         result = result + "\nThe doctors in the system are \n";
-        Collection<Doctor> doctorsColl = doctors.values();
+        Collection<Doctor> doctorsColl = DoctorMapAccess.dictionary().values();
         for (Doctor d: doctorsColl)
             result = result + d;
-        result = result + "\nThe ward is " + ward;
+        result = result + "\nThe ward is " + WardAccess.ward();
         return result;
     }
 
     /**
      * Display the empty beds for the ward.
-     * Method is just a stub, needs to be implemented
      */
     public void displayEmptyBeds()
     {
-        LinkedList<Integer> emptyBedList = ward.availableBeds();
-        System.out.println("The empty beds are" + emptyBedList);
+        EmptyBeds cmd = new EmptyBeds();
+        cmd.findEmptyBedList();
+        LinkedList<Integer> emptyBedsList = cmd.getEmptyBedList();
+
+        if(cmd.wasSuccessful()) {
+            ioInterface.outputString("The empty beds of the hospital are:  " + emptyBedsList + "\n");
+        } else {
+            throw new RuntimeException(cmd.getErrorMessage());
+        }
     }
 
 
     /**
      * Release a patient from the ward.
-     * Method is just a stub, needs to be implemented
      */
     public void releasePatient()
     {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter the health number of the patient: ");
+        int healthNum = ioInterface.readInt("Enter the health number of the patient: ");
 
-        int patientHealthNum = in.nextInt();
-        in.nextLine();
+        ReleasePatient cmd = new ReleasePatient();
+        cmd.releasePatient(healthNum);
+        if (!cmd.wasSuccessful())
+            ioInterface.outputString(cmd.getErrorMessage() + "\n");
+    }
 
-        if(!patients.containsKey(patientHealthNum)){
-            throw new RuntimeException("There is no patient with the health number" + patientHealthNum);
-        }
+    /**
+     * Output the prompt that lists the possible tasks, and read the selection chosen by the user.
+     *
+     * @return the int corresponding to the task selected
+     */
+    public int readOpId() {
+        String[] taskChoices =
+                new String[] {"quit", "add a new patient", "add a new doctor",
+                        "assign a doctor to a patient", "display the empty beds of the ward",
+                        "assign a patient a bed", "release a patient",
+                        "drop doctor-patient association", "display current system state"};
 
-        Patient p = patients.get(patientHealthNum);
-        if(p.getBedLabel() == -1){
-            throw new RuntimeException("The patient is not assigned to any bed");
-        }
-        int bedLabel = p.getBedLabel();
-        if(ward.getPatient(bedLabel) != p){
-            throw new RuntimeException("The bed" + bedLabel + "does not contain the patient it was supposed to"
-            + "Instead it contains" + ward.getPatient(bedLabel) + "entities.Patient");
-        }
-        ward.freeBed(bedLabel);
-        p.setBedLabel(-1);
+        return ioInterface.readChoice(taskChoices);
     }
 
     /**
@@ -309,39 +218,26 @@ public class HospitalSystem
         HospitalSystem sys = new HospitalSystem();
 
         try{
-            while(task != 1) {
-                System.out.print("Please select an operation to do"
-                        + "\n1: quit"
-                        + "\n2: add a new patient"
-                        + "\n3: add a new doctor"
-                        + "\n4: assign a doctor to a patient"
-                        + "\n5: display the empty beds of the ward"
-                        + "\n6: assign a patient a bed"
-                        + "\n7: release a patient"
-                        + "\n8: drop doctor-patient association"
-                        + "\n9: display current system state"
-                        + "\nEnter the number of your selection: ");
+            while(task != 0) {
+                task = sys.readOpId();
 
-                task = consoleIn.nextInt();
-                consoleIn.nextLine();
-
-                if (task == 1)
+                if (task == 0)
                     sys.systemState();
-                else if (task == 2)
+                else if (task == 1)
                     sys.addPatient();
-                else if (task == 3)
+                else if (task == 2)
                     sys.addDoctor();
-                else if (task == 4)
+                else if (task == 3)
                     sys.assignDoctorToPatient();
-                else if (task == 5)
+                else if (task == 4)
                     sys.displayEmptyBeds();
-                else if (task == 6)
+                else if (task == 5)
                     sys.assignBed();
-                else if (task == 7)
+                else if (task == 6)
                     sys.releasePatient();
-                else if (task == 8)
+                else if (task == 7)
                     sys.dropAssociation();
-                else if (task == 9)
+                else if (task == 8)
                     sys.systemState();
                 else
                     System.out.println("Invalid option, try again.");

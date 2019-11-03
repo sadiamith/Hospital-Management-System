@@ -14,7 +14,7 @@ import q2.entities.Ward;
  */
 public class WardAccess {
     //private constructor as its singleton
-    private WardAccess(){};
+    public WardAccess(){};
     private static Ward ward;
 
     /**
@@ -24,7 +24,7 @@ public class WardAccess {
      * @param maxBedLabel index of the last bed of the ward
      */
 
-    public static void makeWard(String name, int minBedLabel, int maxBedLabel){
+    public static void Initialize(String name, int minBedLabel, int maxBedLabel){
         if(name == null || name.equals("")){
             throw new RuntimeException("The name of the ward cannot be null or empty");
         }

@@ -2,28 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="235a6e9b-1869-4931-abf1-6248ebba3acd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/q2/commands/AssignDoctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/commands/CommandStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/commands/DropDoctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/commands/EmptyBeds.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/commands/NewDoctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/containers/DoctorMapAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/containers/PatientMapAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/containers/WardAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/entities/BasicDoctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/entities/Doctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/entities/Patient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/entities/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/entities/Surgeon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/entities/Ward.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/startup/HospitalSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/userInterfaces/AbstractDialogIO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/userInterfaces/ConsoleIO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/q2/userInterfaces/InputOutputInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/commands/AddPatient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/commands/AssignBed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/commands/CreateWard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/commands/CurrentState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/commands/ReleasePatient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/DropDoctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/DropDoctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/EmptyBeds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/EmptyBeds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/WardAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/WardAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/q2/containers/WardAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q2/containers/WardAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/q2/startup/HospitalSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q2/startup/HospitalSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/q2/userInterfaces/DialogIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/q2/userInterfaces/DialogIO.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +69,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HospitalSystem (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="q2.startup.HospitalSystem" />
+      <module name="Assignment 3 &amp; 4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="q2.startup.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HospitalSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="startup.HospitalSystem" />
       <module name="Assignment 3 &amp; 4" />
@@ -89,9 +89,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Patient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="entities.Patient" />
+    <configuration name="HospitalSystemGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="q2.startup.HospitalSystemGUI" />
       <module name="Assignment 3 &amp; 4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="q2.startup.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -103,20 +109,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Ward" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="entities.Ward" />
-      <module name="Assignment 3 &amp; 4" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.HospitalSystem" />
+        <item itemvalue="Application.HospitalSystem (1)" />
+        <item itemvalue="Application.HospitalSystemGUI" />
         <item itemvalue="Application.Doctor" />
         <item itemvalue="Application.Surgeon" />
-        <item itemvalue="Application.Patient" />
-        <item itemvalue="Application.Ward" />
       </list>
     </recent_temporary>
   </component>
