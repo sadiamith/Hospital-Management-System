@@ -2,21 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="235a6e9b-1869-4931-abf1-6248ebba3acd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/commands/AssignDoctor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/commands/EmptyBeds.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/PatientMapAccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/WardAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/commands/AssignDoctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/commands/CommandStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/commands/DropDoctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/commands/EmptyBeds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/commands/NewDoctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/containers/DoctorMapAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/containers/PatientMapAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/containers/WardAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/entities/BasicDoctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/entities/Doctor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/entities/Patient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/entities/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/entities/Surgeon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/entities/Ward.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/startup/HospitalSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/userInterfaces/AbstractDialogIO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/userInterfaces/ConsoleIO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/q2/userInterfaces/InputOutputInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/BasicDoctor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Doctor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/HospitalSystem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Patient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Surgeon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment 3/Ward.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/NewDoctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/NewDoctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/DoctorMapAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/DoctorMapAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/startup/HospitalSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/startup/HospitalSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/DropDoctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/DropDoctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/EmptyBeds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/EmptyBeds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/WardAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/WardAccess.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,13 +50,16 @@
   <component name="ProjectId" id="1S8kh3iio6LHdC4RAhzwiaRXXXm" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/q2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="startup" />
       <recent name="entities" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\U of S\CMPT 270\My Assignment Project\Hospital-Management-System\src\q2" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -149,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572512456088</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Command &gt; DropDoctor association error">
+      <created>1572590106503</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1572590106503</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,6 +187,7 @@
     <MESSAGE value="creating linked list for the list of empty beds in the hospital system&#10;class" />
     <MESSAGE value="implemented releasePatient in hospital system" />
     <MESSAGE value="changed the name of the hospital system for submission purpose&#10;will change it back after that" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the name of the hospital system for submission purpose&#10;will change it back after that" />
+    <MESSAGE value="Command &gt; DropDoctor association error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Command &gt; DropDoctor association error" />
   </component>
 </project>

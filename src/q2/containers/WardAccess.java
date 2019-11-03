@@ -5,9 +5,9 @@
 
 
 
-package containers;
+package q2.containers;
 
-import entities.Ward;
+import q2.entities.Ward;
 
 /**
  * singleton class to access a ward

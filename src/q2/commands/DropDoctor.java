@@ -4,15 +4,17 @@
 //CMPT270
 
 
-package commands;
+package q2.commands;
 
-import entities.*;
-import containers.*;
+import q2.containers.DoctorMapAccess;
+import q2.containers.PatientMapAccess;
+import q2.entities.Doctor;
+import q2.entities.Patient;
 
 /**
  * feature to drop the association between a doctor and patient
  */
-public class DropDoctor extends CommandStatus{
+public class DropDoctor extends CommandStatus {
     /**
      * Drops the association between a doctor and a patient.
      *

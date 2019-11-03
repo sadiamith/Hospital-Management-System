@@ -4,15 +4,16 @@
 //CMPT270
 
 
-package commands;
+package q2.commands;
 
-import java.util.*;
-import containers.WardAccess;
+import q2.containers.WardAccess;
+
+import java.util.LinkedList;
 
 /**
  * feature to get the empty bed list
  */
-public class EmptyBeds extends CommandStatus{
+public class EmptyBeds extends CommandStatus {
     //list of the empty beds of the ward
     private LinkedList<Integer> emptyBedList;
 
