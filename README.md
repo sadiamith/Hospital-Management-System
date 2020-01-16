@@ -1,2 +1,3 @@
 # Hospital-Management-System
-Hospital management system based on OOP Java
+Hospital Management System strongly based on OOP concenpts of Java
+Visually Represented with Java Swing
